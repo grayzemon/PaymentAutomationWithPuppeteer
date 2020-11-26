@@ -1,0 +1,27 @@
+{
+  "name": "payment-automation-example",
+  "version": "1.0.0",
+  "description": "Automated software testing of dummy pament platform with Puppeteer",
+  "main": "index.js",
+  "scripts": {
+    "tests": "node ./node_modules/mocha/bin/mocha --timeout=30000 ./tests",
+    "test:e2e": "node ./node_modules/mocha/bin/mocha --timeout=30000 ./e2e/*.test.js",
+    "test:pay": "node ./node_modules/mocha/bin/mocha --timeout=30000 ./e2e/payment.test.js",
+    "test:currency": "node ./node_modules/mocha/bin/mocha --timeout=30000 ./e2e/currency-exchange.test.js",
+    "test:feedback": "node ./node_modules/mocha/bin/mocha --timeout=30000 ./e2e/feedback.test.js"
+  },
+  "keywords": [
+    "Puppeteer",
+    "Mocha",
+    "Chai",
+    "Automation"
+  ],
+  "author": "GS",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.2.1",
+    "prettier": "^2.1.2",
+    "puppeteer": "^5.4.1"
+  }
+}
