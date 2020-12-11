@@ -6,4 +6,5 @@ Steps to run
 
 Open command prompt in folder
 npm install
+
 npm run test:e2e
