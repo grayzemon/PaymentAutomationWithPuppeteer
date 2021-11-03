@@ -8,7 +8,12 @@ describe('Payment test', () => {
     const screenshotPath = './screenshots/payment/';
 
     before(async function() {
-        browser = await puppeteer.launch({headless: true, slowMo: 0, devtools: false});
+        browser = await puppeteer.launch({
+            headless: true,
+             slowMo: 0,
+              devtools: false,
+              args: ['--ignore-certificate-errors']
+            });
         page = await browser.newPage();
         await page.setDefaultTimeout(10000);
         await page.setDefaultNavigationTimeout(20000);
@@ -34,7 +39,7 @@ describe('Payment test', () => {
         await page.select('#sp_payee','Apple');
         await page.select('#sp_account','Credit Card');
         await typeText(page,'#sp_amount','500');
-        await page.type('#sp_date','2020-11-26');
+        await page.type('#sp_date','2029-11-26');
         await page.keyboard.press('Enter');
         await typeText(page,'#sp_description','test payment');
         await page.screenshot({path: screenshotPath + "Payment entered.png", fullpage: true});

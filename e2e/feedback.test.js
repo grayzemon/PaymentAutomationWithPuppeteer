@@ -8,7 +8,12 @@ describe('Feedback Test', () => {
     const screenshotPath = './screenshots/feedback/';
 
     before(async function() {
-        browser = await puppeteer.launch({headless: true, slowMo: 0, devtools: false});
+        browser = await puppeteer.launch({
+            headless: true,
+            slowMo: 0,
+            devtools: false,
+            args: ['--ignore-certificate-errors']
+        });
         page = await browser.newPage();
         await page.setDefaultTimeout(10000);
         await page.setDefaultNavigationTimeout(20000);
@@ -37,6 +42,6 @@ describe('Feedback Test', () => {
        page.waitForSelector('#feedback-title');
        await page.screenshot({path: screenshotPath + "Feedback results.png", fullpage: true});
        const url = await page.url();
-       expect(url).to.include('/sendFeedback.html')
+       expect(url).to.include('/sendFeedback.html');
     });
 });

@@ -8,7 +8,12 @@ describe('Currency Exchange Test', () => {
     const screenshotPath = './screenshots/currency/';
 
     before(async function() {
-        browser = await puppeteer.launch({headless: true, slowMo: 0, devtools: false});
+        browser = await puppeteer.launch({
+            headless: true,
+             slowMo: 0,
+              devtools: false,
+              args: ['--ignore-certificate-errors']
+        });
         page = await browser.newPage();
         await page.setDefaultTimeout(10000);
         await page.setDefaultNavigationTimeout(20000);
